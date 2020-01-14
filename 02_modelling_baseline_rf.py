@@ -21,10 +21,11 @@ path = os.getcwd()
 os.chdir(path) 
 
 # Import data
-train_x = pd.read_csv(filepath_or_buffer = "./generated_data/train/train_feat_l1.csv")
+train_x = pd.read_csv(filepath_or_buffer = "./generated_data/train/train_feat_l2.csv")
 train_y = pd.read_csv(filepath_or_buffer = "./generated_data/train/train_y.csv")
-val_x = pd.read_csv(filepath_or_buffer = "./generated_data/validation/val_feat_l1.csv")
+val_x = pd.read_csv(filepath_or_buffer = "./generated_data/validation/val_feat_l2.csv")
 val_y = pd.read_csv(filepath_or_buffer = "./generated_data/validation/val_y.csv")
+
 
 #-----------------------------Create Functions-------------------------------#
 

@@ -13,13 +13,6 @@ os.chdir(path)
 train = pd.read_csv(filepath_or_buffer = "./data/trainingData.csv")
 val = pd.read_csv(filepath_or_buffer = "./data/validationData.csv")
 
-# Select 80% of the validation data and add to training to enrich training data
-val_80 = val.sample(frac = 0.80)
-train = train.append(val_80)
-
-# Remove that 80% from the validation data
-val = pd.concat([val, val_80]).drop_duplicates(keep=False)
-
 # Check structure data
 train.head()
 train.describe()
@@ -29,26 +22,6 @@ train.info()
 train.columns = map(str.lower, train.columns)
 val.columns = map(str.lower, val.columns)
 names = list(train.columns)
-
-## Check most dependant variables
-#long = train.loc[:,"longitude"]
-#lat = train.loc[:,"latitude"]
-#floor = train.loc[:,"floor"]
-#buildingid = train.loc[:,"buildingid"]
-#spaceid = train.loc[:,"spaceid"]
-#relativeposition = train.loc[:,"relativeposition"]
-#
-## Check distribution with histogram of most important variable
-## !! Make histogram according to datatype, i.e. make one for categorical variables like id
-#plt.hist(long, rwidth=0.95)
-#plt.hist(lat, rwidth=0.95)
-#plt.hist(floor, rwidth=0.95)
-#plt.hist(buildingid, rwidth=0.95)
-#plt.hist(spaceid, rwidth=0.95)
-#plt.hist(relativeposition, rwidth=0.95)
-
-# Check scatterplot long vs lat
-#plt.scatter(long, lat)
 
 # Split in train and val data in features and Y data frames #519
 train_feat = train.iloc[:, 0:520]
